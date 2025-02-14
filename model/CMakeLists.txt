@@ -75,6 +75,7 @@ foreach (xlen IN ITEMS 32 64)
                 "riscv_insts_zbkb.sail"
                 "riscv_insts_zbkx.sail"
                 "riscv_insts_zicond.sail"
+                "riscv_insts_ztest.sail"
                 ${vext_srcs}
                 "riscv_insts_zicbom.sail"
                 "riscv_insts_zicboz.sail"

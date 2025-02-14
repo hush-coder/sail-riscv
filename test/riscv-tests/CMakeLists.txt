@@ -16,3 +16,18 @@ foreach (arch IN ITEMS "rv32d" "rv64d")
         )
     endforeach()
 endforeach()
+
+set(ZTEST_TESTS
+  "add_test.S"
+  "sub_test.S"
+  "concurrent_test.S"
+)
+
+# 生成ELF文件并注册测试用例
+foreach(test ${ZTEST_TESTS})
+  riscv_target_compile(
+    SOURCES "ztest/${test}"
+    OUTPUT_ELF "ztest/${test}.elf"
+  )
+  add_riscv_test("ztest_${test}" "${test}.elf")  # 沿用现有测试框架 [^2]
+endforeach()
